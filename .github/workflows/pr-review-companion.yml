@@ -34,22 +34,22 @@ jobs:
         run: npm ci
 
       - name: Diff (by change)
-        run: npm run diff:flat -- $PR_NUMBER
+        run: npm run diff -- $PR_NUMBER
         env:
           FORCE_COLOR: 3
 
       - name: Diff (by change, mirroring applied)
-        run: npm run diff:flat -- $PR_NUMBER --mirror
+        run: npm run diff -- $PR_NUMBER --mirror
         env:
           FORCE_COLOR: 3
 
       - name: Diff (by feature)
-        run: npm run diff:flat -- $PR_NUMBER --no-group
+        run: npm run diff -- $PR_NUMBER --no-group
         env:
           FORCE_COLOR: 3
 
       - name: Diff (by feature, mirroring applied)
-        run: npm run diff:flat -- $PR_NUMBER --no-group --mirror
+        run: npm run diff -- $PR_NUMBER --no-group --mirror
         env:
           FORCE_COLOR: 3
 
