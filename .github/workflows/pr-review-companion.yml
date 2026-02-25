@@ -38,21 +38,6 @@ jobs:
         env:
           FORCE_COLOR: 3
 
-      - name: Diff (by change, mirroring applied)
-        run: npm run diff -- $PR_NUMBER --mirror
-        env:
-          FORCE_COLOR: 3
-
-      - name: Diff (by feature)
-        run: npm run diff -- $PR_NUMBER --no-group
-        env:
-          FORCE_COLOR: 3
-
-      - name: Diff (by feature, mirroring applied)
-        run: npm run diff -- $PR_NUMBER --no-group --mirror
-        env:
-          FORCE_COLOR: 3
-
       - name: Determine job url
         id: job
         run: |
@@ -85,8 +70,8 @@ jobs:
           fi
         env:
           COMMENT: |
-            _Tip_: Review these changes [grouped by change][1] (recommended for most PRs), or [grouped by feature][2] (for large PRs).
+            _Tip_: Review these changes [grouped by change][1].
 
             [1]: ${{ steps.job.outputs.JOB_URL }}#step:5:1
-            [2]: ${{ steps.job.outputs.JOB_URL }}#step:7:1
+            
           GITHUB_TOKEN: ${{ github.token }}
